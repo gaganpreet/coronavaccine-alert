@@ -22,12 +22,20 @@ function success() {
     ###### Run this first
     #`telegram-send --configure`
     telegram-send "You can now book a vaccination slot. Go go go!"
+    exit 1
 }
 
 hour=$(date +%H)
 
 # Only run between 10.00 to 14.00
-if [ $hour -gt 10 -a $hour -lt 14 ]
-then
-    start
-fi
+while (( 1  ))
+do
+    if [ $hour -gt 10 -a $hour -lt 14 ]
+    then
+        echo "Running at $(date)"
+        start
+    else
+        echo "Skipping run at $(date) (outside time interval)"
+    fi
+    sleep 5m
+done
