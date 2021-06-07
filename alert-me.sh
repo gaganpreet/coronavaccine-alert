@@ -25,12 +25,12 @@ function success() {
     exit 1
 }
 
-hour=$(date +%H)
 
 # Only run between 10.00 to 14.00
 while (( 1  ))
 do
-    if [ $hour -gt 10 -a $hour -lt 14 ]
+    hour=$(date +%H)
+    if [ $hour -ge 10 -a $hour -le 14 ]
     then
         echo "Running at $(date)"
         start
